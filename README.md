@@ -19,16 +19,16 @@ Add it via gradle
 
     // data list
     val dataList = listOf<Item>(
-        Item('Maputo', R.drawable.maputo),
-        Item('Inhambane', R.drawable.inhambane),
-        Item('Beira', R.drawable.beira),
-        Item('Nampula', R.drawable.nampula)
+        Item("Maputo", R.drawable.maputo),
+        Item("Inhambane", R.drawable.inhambane),
+        Item("Beira", R.drawable.beira),
+        Item("Nampula", R.drawable.nampula)
     ) 
 
     // the bottom sheet
     BottomListSheet()
             .title("Filter")
-            .subtitle('By specific cities')
+            .subtitle("By specific cities")
             .items(dataList)
             .onItemSelected { position ->
                 Log.d(TAG, "You have clicked item at position: $position -> ${data[position]}")
