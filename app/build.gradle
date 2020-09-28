@@ -1,6 +1,29 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+
+ext {
+    bintrayRepo = "maven"
+    bintrayName = "com.kishannareshpal.bottomlistsheet"
+    libraryName = "bottomlistsheet"
+
+    publishedGroupId = "com.kishannareshpal.bottomlistsheet"
+    artifact = "bottomlistsheet"
+    libraryVersion = "1.0-alpha01"
+
+    libraryDescription = "A quick and easy way to implement a selectable list (single/multiple) on a bottom sheet."
+    siteUrl = "https://github.com/kishannareshpal/BottomListSheet"
+    gitUrl = "https://github.com/kishannareshpal/BottomListSheet.git"
+    developerId = "kishannareshpal"
+    developerName = "Kishan Jadav"
+    developerEmail = "kishan_jadav@hotmail.com"
+    licenseName = "The Apache Software License, Version 2.0"
+    licenseUrl = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
     compileSdkVersion 30
@@ -37,5 +60,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation project(':bottomlistsheet')
+}
 
+
+if (project.rootProject.file('local.properties').exists()) {
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }
