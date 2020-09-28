@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="brand_green">#37D88E</color>
+    <color name="light_grey">#95EEEEEE</color>
+    <!--grey-->
+    <color name="md_grey_200">#EEEEEE</color>
+    <color name="md_grey_300">#E0E0E0</color>
+
+    <color name="md_black_1000">#000000</color>
+    <color name="md_white_1000">#ffffff</color>
+    <color name="transparent">#00000000</color>
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BottomListSheetTheme">
+        <attr name="blst_background" format="color"/>
+        <attr name="blst_titleColor" format="color"/>
+        <attr name="blst_subtitleColor" format="color"/>
+        <attr name="blst_confirmButtonTextColor" format="color"/>
+        <attr name="blst_confirmButtonColor" format="color"/>
+    </declare-styleable>
+
+</resources>

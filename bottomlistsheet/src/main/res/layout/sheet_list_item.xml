@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="18dp"
+    android:paddingBottom="18dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:visibility="gone"
+        tools:srcCompat="@tools:sample/avatars"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_image"
+        android:layout_toLeftOf="@id/cb_selection"
+        android:layout_centerVertical="true"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@color/md_black_1000"
+        android:text="Matemática"
+        android:textSize="14sp"
+        android:layout_gravity="center|center_vertical" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/cb_selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:checked="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        tools:text=" "
+        android:visibility="gone"
+        app:buttonTint="@color/md_black_1000"
+        tools:visibility="visible" />
+
+</RelativeLayout>
