@@ -2,6 +2,76 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+apply from: 'publish.gradle'
+//apply plugin: 'com.jfrog.bintray'
+
+
+
+//publishing {
+//    publications {
+//        release(MavenPublication) {
+//            // Specify own groupId as package name of your library,
+//            // otherwise it would just use project's name (=name of the root directory) by default.
+//            groupId 'com.kishannareshpal'
+//            // Specify custom artifactId if needed,
+//            // otherwise it would use module's name by default.
+//            //artifactId 'custom-artifact'
+//            // You can specify custom version,
+//            // otherwise it would use version from `android { defaultConfig { ... } }` by default.
+//            //version = '1.0'
+//        }
+//    }
+//}
+//
+//
+////// Generate Source Jar
+////task sourceJar(type: Jar) {
+////    from android.sourceSets.main.java.srcDirs
+////    classifier "sources"
+////}
+//
+////region Publish to jCenter
+//def libGroupId = 'com.kishannareshpal'
+//def libArtifactId = 'bottomlistsheet'
+//def libVersion = '1.0-alpha02'
+//def libDesc = 'A quick and easy way to implement a selectable list (single/multiple) on a bottom sheet.'
+//def libLicenses = ['Apache-2.0']
+//def libVCSUrl = 'https://github.com/kishannareshpal/BottomListSheet.git'
+////
+////// Create the publication with the pom configuration
+////publishing {
+////    publications {
+////        MyPublication(MavenPublication) {
+////            groupId libGroupId
+////            artifactId libArtifactId
+////            version libVersion
+////            artifact(sourceJar)
+////            artifact("$buildDir/outputs/aar/$libArtifactId-release.aar")
+////        }
+////    }
+////}
+//
+//// Bintray config
+//bintray {
+//    user = System.getenv("BINTRAY_USER")
+//    key = System.getenv("BINTRAY_KEY")
+//    publications = ['release']
+//    pkg {
+//        repo = "maven"
+//        name = "$libGroupId:$libArtifactId"
+//        desc = libDesc
+//        licenses = libLicenses
+//        vcsUrl = libVCSUrl
+//        version {
+//            name = libVersion
+//            vcsTag = libVersion
+//            released = new Date()
+//        }
+//    }
+//}
+
+
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -10,7 +80,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0-alpha01"
+        versionName "1.0-alpha02"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         vectorDrawables {
@@ -37,7 +107,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.10"
     implementation 'androidx.core:core-ktx:1.3.1'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

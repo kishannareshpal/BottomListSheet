@@ -1,0 +1,132 @@
+/**
+ * Maven Publish Helper
+ *
+ * Requires Android Gradle plugin 3.6.0 or higher (available since Android Studio 3.6).
+ * See also: https://developer.android.com/studio/build/maven-publish-plugin
+ *
+ * @Author Robert Pösel
+ * @Version 1.5
+ * @Date 3.3.2020
+ */
+apply plugin: 'maven-publish'
+apply plugin: 'org.jetbrains.dokka-android'
+apply plugin: 'com.jfrog.bintray'
+
+
+group = 'com.kishannareshpal'
+version = '1.0-alpha02'
+
+// For more details on Bintray's configuration, see https://github.com/bintray/gradle-bintray-plugin.
+bintray {
+    user = System.getenv("BINTRAY_USER")
+    key = System.getenv("BINTRAY_KEY")
+    publications = ['Production']
+    configurations = ['archives']
+
+    pkg {
+        repo = "maven"
+        name = "bottomlistsheet"
+        dryRun = false
+        publish = true
+        override = false
+        publicDownloadNumbers = false
+        version {
+            name = "1.0-alpha02"
+            vcsTag = "1.0-alpha02"
+            released = new Date()
+        }
+    }
+}
+
+// For more details on Dokka's configuration, see https://github.com/Kotlin/dokka.
+//dokka {
+//    // Minimal configuration.
+//    outputFormat = 'javadoc'
+//    outputDirectory = "$buildDir/javadoc"
+//
+//    // Use to include or exclude non public members.
+//    includeNonPublic = false
+//
+//    // Do not output deprecated members. Applies globally, can be overridden by packageOptions.
+//    skipDeprecated = false
+//
+//    // Emit warnings about not documented members. Applies globally, also can be overridden by packageOptions.
+//    reportUndocumented = true
+//
+//    // Do not create index pages for empty packages
+//    skipEmptyPackages = true
+//
+//    // Example of how to link to external documentation.
+//    // The following links to AndroidX.
+//    // Repeat for multiple links.
+//    externalDocumentationLink {
+//        // Root URL of the generated documentation to link with. The trailing slash is required!
+//        url = new URL("https://developer.android.com/reference/")
+//
+//        // If package-list file located in non-standard location
+//        packageListUrl = new URL("https://developer.android.com/reference/androidx/package-list")
+//    }
+//}
+//
+//task androidJavadocsJar(type: Jar, dependsOn: dokka) {
+//    classifier = 'javadoc'
+//    from dokka.outputDirectory
+//}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            Production(MavenPublication) {
+                groupId "com.kishannareshpal" // If you publish to Bintray, make sure that this is the same as the "group" field at the top of this file.
+                artifactId "bottomlistsheet"
+                version = "1.0-alpha02" // If you publish to Bintray, make sure that this is the same as the "version" field at the top of this file.
+
+                artifact bundleReleaseAar
+//                artifact androidJavadocsJar
+                artifact androidSourcesJar
+
+                pom.withXml {
+                    final dependenciesNode = asNode().appendNode('dependencies')
+
+                    ext.addDependency = { dep, String scope ->
+                        if (dep.group == null || dep.version == null || dep.name == null || dep.name == "unspecified")
+                            return // ignore invalid dependencies
+
+                        final dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', dep.group)
+                        dependencyNode.appendNode('artifactId', dep.name)
+                        dependencyNode.appendNode('version', dep.version)
+                        dependencyNode.appendNode('scope', scope)
+
+                        if (!dep.transitive) {
+                            // If this dependency is not transitive, we should force exclude all its dependencies from the POM
+                            final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                            exclusionNode.appendNode('groupId', '*')
+                            exclusionNode.appendNode('artifactId', '*')
+                        } else if (!dep.properties.excludeRules.empty) {
+                            // Otherwise add specified exclude rules
+                            final exclusionsNode = dependencyNode.appendNode('exclusions')
+                            dep.properties.excludeRules.each { rule ->
+                                final exclusionNode = exclusionsNode.appendNode('exclusion')
+                                exclusionNode.appendNode('groupId', rule.group ?: '*')
+                                exclusionNode.appendNode('artifactId', rule.module ?: '*')
+                            }
+                        }
+                    }
+
+                    // List all "compile" dependencies (for old Gradle)
+                    configurations.compile.getDependencies().each { dep -> addDependency(dep, "compile") }
+                    // List all "api" dependencies (for new Gradle) as "compile" dependencies
+                    configurations.api.getDependencies().each { dep -> addDependency(dep, "compile") }
+                    // List all "implementation" dependencies (for new Gradle) as "runtime" dependencies
+                    configurations.implementation.getDependencies().each { dep -> addDependency(dep, "runtime") }
+                }
+            }
+        }
+    }
+}
