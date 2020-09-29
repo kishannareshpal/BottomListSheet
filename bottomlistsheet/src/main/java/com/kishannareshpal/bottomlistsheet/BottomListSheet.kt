@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
@@ -35,6 +36,7 @@ class BottomListSheet: BottomSheetDialogFragment() {
     private var closeClickListener: ((View, List<Int>) -> Unit)? = null
     private var dismissOnConfirm: Boolean = true // whether or not the confirm button will dismiss the dialog on click.
     private var preselectedItemsPositions: List<Int> = listOf() // preselect items at these positions on show.
+    private var isNightMode: Boolean = false
 
     /**
      * Set if the multiple selection should be enabled or not.
@@ -57,7 +59,6 @@ class BottomListSheet: BottomSheetDialogFragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         this.ctx = context
-        context.setTheme(R.style.Theme_BottomListSheet); // todo implement night mode (or dynamic)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -65,7 +66,7 @@ class BottomListSheet: BottomSheetDialogFragment() {
         return inflater.inflate(R.layout.list_sheet_layout, container, false)
     }
 
-    override fun getTheme(): Int = R.style.Theme_BottomListSheet
+    override fun getTheme(): Int = if (isNightMode) R.style.Theme_BottomListSheet_Night else R.style.Theme_BottomListSheet_Light
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -114,7 +115,7 @@ class BottomListSheet: BottomSheetDialogFragment() {
             this.itemsList = it
             it?.let { listOfItems ->
 
-                adapter = BottomListSheetAdapter(ctx, listOfItems, isMultipleSelection)
+                adapter = BottomListSheetAdapter(ContextThemeWrapper(ctx, theme), listOfItems, isMultipleSelection)
                 // Set a listener for each item click.
                 adapter!!.onItemSelectedListener = {
                     if (isMultipleSelection) {
@@ -234,6 +235,11 @@ class BottomListSheet: BottomSheetDialogFragment() {
         } else {
             viewModel?.setItemsList(itemsList)
         }
+        return this;
+    }
+
+    fun isNightMode(enabled: Boolean = true): BottomListSheet {
+        this.isNightMode = enabled
         return this;
     }
 

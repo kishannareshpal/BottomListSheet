@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kishannareshpal.bottomlistsheet.models.Item
 
-class BottomListSheetViewModel: ViewModel() {
+internal class BottomListSheetViewModel: ViewModel() {
 
     private val _title = MutableLiveData<String?>()
     val title: LiveData<String?>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.BottomListSheet" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="colorSurface">?attr/blst_backgroundColor</item>
+
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:navigationBarColor">?attr/blst_navigationBarColor</item>
+        <item name="android:navigationBarDividerColor">?attr/blst_navigationBarDividerColor</item>
+        <item name="android:windowLightNavigationBar">?attr/blst_navigationBarIsLight</item>
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+</resources>

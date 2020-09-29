@@ -13,8 +13,8 @@ apply plugin: 'org.jetbrains.dokka-android'
 apply plugin: 'com.jfrog.bintray'
 
 
-group = 'com.kishannareshpal'
-version = '1.0-alpha02'
+group = "com.kishannareshpal"
+version = "1.0-beta01"
 
 // For more details on Bintray's configuration, see https://github.com/bintray/gradle-bintray-plugin.
 bintray {
@@ -31,8 +31,8 @@ bintray {
         override = false
         publicDownloadNumbers = false
         version {
-            name = "1.0-alpha02"
-            vcsTag = "1.0-alpha02"
+            name = version
+            vcsTag = version
             released = new Date()
         }
     }

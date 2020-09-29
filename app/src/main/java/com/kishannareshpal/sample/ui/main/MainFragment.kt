@@ -52,17 +52,22 @@ class MainFragment : Fragment() {
 
             if (it == true) {
                 // Show the bottom sheet
-                BottomListSheet()
+
+
+                val bls = BottomListSheet()
                     .title("Filtrar")
+                    .subtitle("hello?")
                     .items(data)
+                    .isNightMode()
                     .onItemSelected { position ->
                         Log.d(TAG, "You have clicked item number $position : ${data[position]}")
                     }
                     .onConfirm { button, selectedItems ->
                         Log.d(TAG, "Applied ${selectedItems.size} filters!")
                     }
-                    .preselectItems(listOf(1, 4))
-                    .show(parentFragmentManager)
+                    .preselectItems(listOf(1, 4));
+
+                bls.show(activity!!.supportFragmentManager)
 
 
             }

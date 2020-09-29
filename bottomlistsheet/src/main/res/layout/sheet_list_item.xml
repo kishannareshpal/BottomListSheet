@@ -32,7 +32,7 @@
         android:layout_centerVertical="true"
         android:maxLines="2"
         android:ellipsize="end"
-        android:textColor="@color/md_black_1000"
+        android:textColor="?attr/blst_itemsTextColor"
         android:text="Matemática"
         android:textSize="14sp"
         android:layout_gravity="center|center_vertical" />
@@ -50,7 +50,7 @@
         android:minHeight="0dp"
         tools:text=" "
         android:visibility="gone"
-        app:buttonTint="@color/md_black_1000"
+        app:buttonTint="?attr/blst_checkboxTint"
         tools:visibility="visible" />
 
 </RelativeLayout>

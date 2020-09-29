@@ -23,7 +23,7 @@ import com.kishannareshpal.bottomlistsheet.utils.setSafeClickListener
  * @param itemsList the list of items to show
  * @param isMultipleSelection whether this adapter should allow multiple selection of items or not.
  */
-class BottomListSheetAdapter(private val ctx: Context, var itemsList: List<Item>, var isMultipleSelection: Boolean = false) : SelectableAdapter<BottomListSheetAdapter.ItemViewHolder>() {
+internal class BottomListSheetAdapter(private val ctx: Context, var itemsList: List<Item>, var isMultipleSelection: Boolean = false) : SelectableAdapter<BottomListSheetAdapter.ItemViewHolder>() {
 
     // Data
     var onItemSelectedListener: ((position: Int) -> Unit)? = null

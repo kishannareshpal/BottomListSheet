@@ -20,7 +20,8 @@
             android:id="@+id/btn_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_close"
+            app:srcCompat="?attr/blst_closeIconDrawable"
+            android:tint="?attr/blst_closeIconTintColor"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
@@ -46,7 +47,7 @@
                 tools:text="Disciplina"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="?attr/colorOnSurface"
+                android:textColor="?attr/blst_titleTextColor"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -55,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Em que disciplina se enquadra?"
-                android:textColor="?attr/colorOnSurface"
+                android:textColor="?attr/blst_subtitleTextColor"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:visibility="gone"
@@ -80,9 +81,9 @@
             app:backgroundTint="@color/transparent"
             app:cornerRadius="24dp"
             android:text="@string/apply"
-            android:textColor="@color/button_color"
+            android:textColor="@color/blst_confirm_color"
             app:icon="@drawable/ic_check"
-            app:iconTint="@color/button_color" />
+            app:iconTint="@color/blst_confirm_color" />
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView

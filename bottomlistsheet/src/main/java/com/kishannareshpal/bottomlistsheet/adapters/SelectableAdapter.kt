@@ -5,7 +5,7 @@ import androidx.core.util.contains
 import androidx.core.util.forEach
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class SelectableAdapter<VH: RecyclerView.ViewHolder>: RecyclerView.Adapter<VH>() {
+internal abstract class SelectableAdapter<VH: RecyclerView.ViewHolder>: RecyclerView.Adapter<VH>() {
 
     private var selectedItems: SparseBooleanArray = SparseBooleanArray()
 

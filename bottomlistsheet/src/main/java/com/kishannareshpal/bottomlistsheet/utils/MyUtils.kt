@@ -26,7 +26,7 @@ private class SafeClickListener(
 /**
  * An extension to set a click listener with a click interval, to prevent spam.
  */
-fun View.setSafeClickListener(defaultInterval: Int = 1600, onSafeClick: (View) -> Unit) {
+internal fun View.setSafeClickListener(defaultInterval: Int = 1600, onSafeClick: (View) -> Unit) {
     val safeClickListener = SafeClickListener(defaultInterval = defaultInterval) {
         onSafeClick(it)
     }

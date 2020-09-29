@@ -3,17 +3,16 @@
 
     <!-- Main BottomListSheet Theme -->
     <style name="Theme.BottomListSheet" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
-        <item name="colorPrimary">@color/brand_green</item>
-        <item name="colorSurface">@color/md_white_1000</item>
-        <item name="colorOnSurface">@color/md_black_1000</item>
+        <item name="colorSurface">?attr/blst_backgroundColor</item>
 
         <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/transparent</item>
     </style>
 
     <style name="CustomBottomSheetStyle" parent="@style/Widget.MaterialComponents.BottomSheet">
         <item name="shapeAppearanceOverlay">@style/BottomListSheetRoundedTopShapeAppearance</item>
     </style>
-
 
     <!-- Custom shape appearance, that is round on top -->
     <style name="BottomListSheetRoundedTopShapeAppearance">
@@ -23,4 +22,40 @@
         <item name="cornerSizeBottomRight">0dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
     </style>
+
+
+
+    <!-- Theme Variants -->
+    <style name="Theme.BottomListSheet.Light" parent="Theme.BottomListSheet">
+        <item name="blst_backgroundColor">@color/md_white_1000</item>
+
+        <item name="blst_titleTextColor">@color/md_black_1000</item>
+        <item name="blst_subtitleTextColor">@color/md_grey_700</item>
+        <item name="blst_closeIconDrawable">@drawable/ic_close</item>
+        <item name="blst_closeIconTintColor">@color/md_black_1000</item>
+        <item name="blst_confirmTextColor">@color/brand_green</item>
+        <item name="blst_itemsTextColor">@color/md_black_1000</item>
+        <item name="blst_checkboxTint">@color/md_black_1000</item>
+
+        <item name="blst_navigationBarDividerColor">@color/transparent</item>
+        <item name="blst_navigationBarColor">?blst_backgroundColor</item>
+        <item name="blst_navigationBarIsLight">true</item>
+    </style>
+
+    <style name="Theme.BottomListSheet.Night" parent="Theme.BottomListSheet">
+        <item name="blst_backgroundColor">@color/md_blue_grey_900</item>
+
+        <item name="blst_titleTextColor">@color/md_white_1000</item>
+        <item name="blst_subtitleTextColor">@color/md_grey_300</item>
+        <item name="blst_closeIconDrawable">@drawable/ic_close</item>
+        <item name="blst_closeIconTintColor">@color/md_white_1000</item>
+        <item name="blst_confirmTextColor">@color/brand_green</item>
+        <item name="blst_itemsTextColor">@color/md_white_1000</item>
+        <item name="blst_checkboxTint">@color/md_white_1000</item>
+
+        <item name="blst_navigationBarDividerColor">@color/transparent</item>
+        <item name="blst_navigationBarColor">?blst_backgroundColor</item>
+        <item name="blst_navigationBarIsLight">false</item>
+    </style>
+
 </resources>

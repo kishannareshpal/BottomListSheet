@@ -2,11 +2,18 @@
 <resources>
 
     <declare-styleable name="BottomListSheetTheme">
-        <attr name="blst_background" format="color"/>
-        <attr name="blst_titleColor" format="color"/>
-        <attr name="blst_subtitleColor" format="color"/>
-        <attr name="blst_confirmButtonTextColor" format="color"/>
-        <attr name="blst_confirmButtonColor" format="color"/>
+        <attr name="blst_backgroundColor" format="color" />
+        <attr name="blst_titleTextColor" format="color" />
+        <attr name="blst_subtitleTextColor" format="color" />
+        <attr name="blst_closeIconDrawable" format="reference" />
+        <attr name="blst_closeIconTintColor" format="color" />
+        <attr name="blst_confirmTextColor" format="color" />
+        <attr name="blst_itemsTextColor" format="color" />
+        <attr name="blst_checkboxTint" format="color" />
+
+        <attr name="blst_navigationBarDividerColor" format="color" />
+        <attr name="blst_navigationBarColor" format="color" />
+        <attr name="blst_navigationBarIsLight" format="boolean" />
     </declare-styleable>
 
 </resources>
