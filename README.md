@@ -83,7 +83,7 @@ Add it via gradle
     <tr>
         <td><b>Show as dark mode</b></td>
         <td><code>isNightMode</code></td>
-        <td><code>null</code></td>
+        <td><code>false</code></td>
         <td>Use this option to show the bottom sheet as dark mode</td>
     </tr>
     <tr>
