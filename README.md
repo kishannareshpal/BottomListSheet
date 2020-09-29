@@ -31,7 +31,6 @@ Add it via gradle
 
 
     BottomListSheet()
-<<<<<<< HEAD
         .title("Filter")
         .subtitle("By specific cities")
         .items(dataList)
@@ -134,18 +133,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-=======
-            .title("Filter")
-            .subtitle("By specific cities")
-            .items(dataList)
-            .onItemSelected { position ->
-                Log.d(TAG, "You have clicked item at position: $position -> ${data[position]}")
-            }
-            .onConfirm { button, selectedItems ->
-                Log.d(TAG, "Applied ${selectedItems.size} filters!")
-            }
-            .preselectItems(listOf(1, 2))
-            .show(parentFragmentManager)
-
-```
->>>>>>> 66ff987827cf153d7167509b51c9a446586e4241
