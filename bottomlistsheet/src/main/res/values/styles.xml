@@ -27,6 +27,8 @@
 
     <!-- Theme Variants -->
     <style name="Theme.BottomListSheet.Light" parent="Theme.BottomListSheet">
+        <item name="colorPrimary">@color/md_grey_400</item>
+
         <item name="blst_backgroundColor">@color/md_white_1000</item>
 
         <item name="blst_titleTextColor">@color/md_black_1000</item>
@@ -43,6 +45,7 @@
     </style>
 
     <style name="Theme.BottomListSheet.Night" parent="Theme.BottomListSheet">
+        <item name="colorPrimary">@color/md_black_1000</item>
         <item name="blst_backgroundColor">@color/md_blue_grey_900</item>
 
         <item name="blst_titleTextColor">@color/md_white_1000</item>

@@ -14,7 +14,7 @@ apply plugin: 'com.jfrog.bintray'
 
 
 group = "com.kishannareshpal"
-version = "1.0-beta01"
+version = "1.0-beta02"
 
 // For more details on Bintray's configuration, see https://github.com/bintray/gradle-bintray-plugin.
 bintray {
@@ -31,8 +31,8 @@ bintray {
         override = false
         publicDownloadNumbers = false
         version {
-            name = version
-            vcsTag = version
+            name = "1.0-beta02"
+            vcsTag = "1.0-beta02"
             released = new Date()
         }
     }
@@ -84,7 +84,7 @@ project.afterEvaluate {
             Production(MavenPublication) {
                 groupId "com.kishannareshpal" // If you publish to Bintray, make sure that this is the same as the "group" field at the top of this file.
                 artifactId "bottomlistsheet"
-                version = "1.0-alpha02" // If you publish to Bintray, make sure that this is the same as the "version" field at the top of this file.
+                version = "1.0-beta02" // If you publish to Bintray, make sure that this is the same as the "version" field at the top of this file.
 
                 artifact bundleReleaseAar
 //                artifact androidJavadocsJar

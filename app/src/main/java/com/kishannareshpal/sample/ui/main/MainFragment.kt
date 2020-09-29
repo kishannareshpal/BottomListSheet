@@ -58,7 +58,7 @@ class MainFragment : Fragment() {
                     .title("Filtrar")
                     .subtitle("hello?")
                     .items(data)
-                    .isNightMode()
+                    .isNightMode(enabled = false)
                     .onItemSelected { position ->
                         Log.d(TAG, "You have clicked item number $position : ${data[position]}")
                     }
