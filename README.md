@@ -1,6 +1,6 @@
 # 🗳 BottomListSheet
 
-[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14) [![Download](https://api.bintray.com/packages/kishannareshpal/maven/bottomlistsheet/images/download.svg?version=1.0-alpha02)](https://bintray.com/kishannareshpal/maven/bottomlistsheet/1.0-alpha02/link)
+[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14) [![Download](https://api.bintray.com/packages/kishannareshpal/maven/bottomlistsheet/images/download.svg)](https://bintray.com/kishannareshpal/maven/bottomlistsheet/_latestVersion)
 
 A quick and easy way to implement a selectable list (single/multiple) via [Bottom Sheet Dialog Fragment](https://material.io/components/sheets-bottom).
 
@@ -79,6 +79,12 @@ Add it via gradle
         <td><code>items</code></td>
         <td><code>[]</code></td>
         <td>An array list of items <code>Item(string, int)</code></td>
+    </tr>
+    <tr>
+        <td><b>Show as dark mode</b></td>
+        <td><code>isNightMode</code></td>
+        <td><code>false</code></td>
+        <td>Use this option to show the bottom sheet as dark mode</td>
     </tr>
     <tr>
         <td><b>On item clicked</b></td>
